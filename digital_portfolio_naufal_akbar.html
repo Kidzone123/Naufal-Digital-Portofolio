@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naufal Akbar | Digital Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #f8fbff, #dbeafe);
+      color: #0f172a;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(59,130,246,0.12);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #2563eb;
+    }
+
+    .nav-links a {
+      color: #334155;
+      text-decoration: none;
+      margin-left: 24px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .hero-text span {
+      color: #2563eb;
+    }
+
+    .hero-text p {
+      color: #64748b;
+      margin-bottom: 30px;
+      font-size: 1.05rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 26px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(37,99,235,0.2);
+      color: #2563eb;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #ffffff, #eff6ff);
+      border: 1px solid rgba(59,130,246,0.12);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(59,130,246,0.12);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 20px;
+      color: #2563eb;
+    }
+
+    .hero-card ul {
+      list-style: none;
+    }
+
+    .hero-card li {
+      margin-bottom: 14px;
+      color: #334155;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      max-width: 700px;
+      margin: auto auto 60px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.75);
+      border-radius: 24px;
+      padding: 30px;
+      border: 1px solid rgba(59,130,246,0.12);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #2563eb;
+    }
+
+    .card h3 {
+      margin-bottom: 14px;
+      color: #2563eb;
+    }
+
+    .card p {
+      color: #334155;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .timeline-item {
+      background: rgba(255,255,255,0.75);
+      padding: 30px;
+      border-radius: 20px;
+      border-left: 5px solid #2563eb;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .timeline-item span {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .achievement-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .achievement {
+      background: linear-gradient(145deg, #ffffff, #eff6ff);
+      padding: 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(59,130,246,0.12);
+    }
+
+    .achievement h4 {
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(10px);
+      color: #64748b;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 80px;
+    }
+
+    @media(max-width:768px) {
+      .hero-text h1 {
+        font-size: 2.7rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">Naufal Akbar</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#achievement">Achievement</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Future <span>Finance & Strategy</span> Professional</h1>
+        <p>
+          Undergraduate Management Student at Universitas Padjadjaran with a 3.9 GPA and strong expertise in financial analysis, business strategy, leadership, and competitive problem solving.
+        </p>
+
+        <div class="btn-group">
+          <a href="https://www.linkedin.com" class="btn btn-primary">LinkedIn Profile</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Core Expertise</h3>
+        <ul>
+          <li>Financial Analysis & Financial Modeling</li>
+          <li>Business Strategy & Market Research</li>
+          <li>Equity Research Competition</li>
+          <li>Leadership & Fundraising</li>
+          <li>Branding & Digital Marketing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        I am a highly analytical and ambitious management student with a strong interest in corporate finance, consulting, and strategic business development. My experiences across competitions, organizations, internships, and business projects have shaped my ability to combine analytical thinking with execution excellence.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Academic Excellence</h3>
+          <p>Maintained a 3.9 GPA while actively participating in organizational, professional, and competitive activities.</p>
+        </div>
+
+        <div class="card">
+          <h3>Leadership Experience</h3>
+          <p>Experienced in leading financial, marketing, and fundraising divisions across multiple organizations and projects.</p>
+        </div>
+
+        <div class="card">
+          <h3>Strategic Mindset</h3>
+          <p>Strong ability to analyze problems, build business strategies, and deliver practical solutions in dynamic environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-subtitle">
+        Experiences that strengthened my analytical, operational, and strategic capabilities.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Data Support Intern – DPR RI Komisi VII</h3>
+          <span>2025</span>
+          <p>Supported analytical and data management activities related to energy, research, and environmental sectors.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Marketing Manager – Kokuto Coffee</h3>
+          <span>2025</span>
+          <p>Led branding and marketing initiatives that expanded the business into retail partnerships and increased digital reach.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Chief Finance Officer – Hima Manajemen Unpad</h3>
+          <span>2025</span>
+          <p>Managed budgeting, sponsorship, and financial planning while collaborating with multiple departments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievement">
+    <div class="container">
+      <h2 class="section-title">Achievements</h2>
+      <p class="section-subtitle">
+        Selected achievements in finance, business strategy, and academic competitions.
+      </p>
+
+      <div class="achievement-list">
+        <div class="achievement">
+          <h4>1st Place</h4>
+          <p>Equity Research Competition WOSC KSPM FEB Unesa 2025</p>
+        </div>
+
+        <div class="achievement">
+          <h4>4th Place</h4>
+          <p>Business Case Competition FIA UB x BCA Syariah 2025</p>
+        </div>
+
+        <div class="achievement">
+          <h4>4th Place</h4>
+          <p>Equity Research Competition KSPM Fair FEB Unila 2025</p>
+        </div>
+
+        <div class="achievement">
+          <h4>Top GPA</h4>
+          <p>Top GPA in Semester 3, 4, and 5 at Universitas Padjadjaran</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Interested in collaboration, internship opportunities, or professional networking? Feel free to connect.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Email</h3>
+          <p>naufal17akbarr@gmail.com</p>
+        </div>
+
+        <div class="card">
+          <h3>Phone</h3>
+          <p>+62 896-5355-3682</p>
+        </div>
+
+        <div class="card">
+          <h3>LinkedIn</h3>
+          <p>linkedin.com/in/naufalakbarr</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Naufal Akbar. Digital Portfolio.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
